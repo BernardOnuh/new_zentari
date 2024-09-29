@@ -62,13 +62,13 @@ function Index({
   const [floatingEnergy, setFloatingEnergy] = useState(0);
   const [coinsEarned, setCoinsEarned] = useState(0);
   const [tappingPower, setTappingPower] = useState(0);
-  const searchParams = useSearchParams(); // Correct hook from next/navigation
+  //const searchParams = useSearchParams(); // Correct hook from next/navigation
   const [rotateAnim, setRotateAnim] = useState("");
   const firstName = "John Doe"; // Mock user
 
-  const referralId = Number(searchParams.get("referralId"));
+  //const referralId = Number(searchParams.get("referralId"));
 
-  const { userData } = useUserData(userId, name, referralId);
+  const { userData } = useUserData(userId, name);
 
   const [screenAxis, setScreenAxis] = useState<ScreenAxis[]>([]);
 
