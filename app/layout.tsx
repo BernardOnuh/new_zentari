@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-// import { Providers } from "./providers"; // We'll create this file next
 import { Providers } from "./Providers";
+import { Box } from "@chakra-ui/react";
+import bg from "./images/background.png";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,7 +31,33 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Box position="relative" minHeight="100vh">
+            <Box
+              position="absolute"
+              top={0}
+              left={0}
+              right={0}
+              bottom={0}
+              backgroundImage={`url(${bg.src})`}
+              backgroundSize="cover"
+              backgroundPosition="center"
+              backgroundRepeat="no-repeat"
+              backgroundAttachment="fixed"
+            />
+            <Box
+              position="absolute"
+              top={0}
+              left={0}
+              right={0}
+              bottom={0}
+              bg="rgba(5, 0, 12, 0.765)" // Adjust the last value (0.5) to control darkness
+            />
+            <Box position="relative" zIndex={1}>
+              {children}
+            </Box>
+          </Box>
+        </Providers>
       </body>
     </html>
   );
